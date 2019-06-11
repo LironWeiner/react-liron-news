@@ -1,0 +1,30 @@
+.NavigationItem a {
+  color: rgb(38, 66, 95);
+  text-decoration: none;
+}
+.NavigationItem .Text {
+  padding-bottom: 20px;
+}
+.NavigationItem .active .Text {
+  border-bottom: 3px solid rgb(15, 68, 112);
+  padding-bottom: 18px;
+  font-weight: 600;
+}
+.NavigationItem:hover :not(.active) {
+  border-bottom: 3px solid rgb(15, 68, 112);
+  padding-bottom: 18px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .NavigationItem {
+    margin: 10px 0;
+    width: 100%;
+  }
+  .NavigationItem .Text {
+    border-bottom: 1px solid rgb(156, 156, 156);
+  }
+  .NavigationItem .active {
+    padding: 0;
+  }
+}

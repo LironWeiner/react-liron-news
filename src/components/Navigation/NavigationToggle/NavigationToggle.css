@@ -1,0 +1,45 @@
+@media (max-width: 600px) {
+  .NavigationToggle {
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  .NavigationToggle div {
+    transition: all 0.3s ease-out;
+    height: 3px;
+    background: rgb(15, 68, 112);
+  }
+
+  .Open div:nth-child(1) {
+    -webkit-transform: rotate(-45deg) translate(-7px, 6px);
+    transform: rotate(-45deg) translate(-7px, 6px);
+  }
+  .Open div:nth-child(2) {
+    opacity: 0;
+  }
+  .Open div:nth-child(3) {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+  .NavigationToggle::before {
+    opacity: 0;
+    content: "Menu";
+    position: absolute;
+    right: 65px;
+    top: 0;
+    font-size: 1.2em;
+    color: rgb(15, 68, 112);
+    transition: all 0.3s ease-out;
+  }
+  .NavigationToggle:hover::before {
+    top: 24px;
+    opacity: 1;    
+  }
+}

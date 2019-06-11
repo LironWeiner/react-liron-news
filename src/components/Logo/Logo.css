@@ -1,0 +1,27 @@
+.Logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4em;
+  text-align: center;
+  margin: auto 0;
+}
+.Logo a {
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+.Logo .style2 {
+  letter-spacing: 2px;
+  color: white;
+  background: red;
+  font-weight: 400;
+}
+.Logo .style1 {
+  color: rgb(73, 191, 246);
+  font-weight: 400;
+}
+
+@media (min-width: 600px) {
+  .Logo {
+    padding: 20px 0 20px 0;
+  }
+}
