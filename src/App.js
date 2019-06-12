@@ -12,7 +12,7 @@ function App() {
         <Switch>
           {
             pathList.map(thePath => {
-              return <Route key={thePath} path={thePath} exact component={News} />;
+              return <Route key={thePath.type} path={thePath.path} exact component={News} />;
             })
           }
         </Switch>        

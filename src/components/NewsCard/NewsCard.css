@@ -1,0 +1,51 @@
+/* Regular horizontal news card */
+.NewsCard { 
+  box-sizing: border-box;   
+  border: 5px inset hsla(0, 0%, 100%, 0.1);
+  padding: 2px;
+  width: 80%;     
+}
+.InnerDiv {
+  height: 350px;  
+  display: flex;  
+  background-image: radial-gradient(circle at center, #fff 0, #f7f7f7 100%);  
+}
+.NewsCard img {  
+  box-sizing: border-box;
+  padding: 5px;  
+  width: 66%;  
+}
+.Text {
+  font-size: 0.8em;
+  padding: 1%;
+  text-align: center;
+  align-self: center;
+}
+/* End of horizontal news card */
+
+/* Vertical news card */
+.NewsCardVertical {
+  box-sizing: border-box;
+  border: 5px inset hsla(0, 0%, 100%, 0.1);
+  padding: 2px;
+  width: 33.3%;     
+}
+.NewsCardVertical .InnerDiv { 
+  height: 350px; 
+  display: flex;
+  flex-direction: column;  
+  background-image: radial-gradient(circle at center, #fff 0, #f7f7f7 100%);  
+}
+.NewsCardVertical img {
+  box-sizing: border-box;
+  padding: 5px;
+  height: 55%;
+}
+.NewsCardVertical .Text {  
+  display: flex;
+  font-size: 0.65em;  
+  align-items: center;
+  margin: auto;
+  padding: 1%;  
+}
+/* End of vertical news card */

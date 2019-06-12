@@ -1,5 +1,19 @@
-.News {
-    display: flex;
-    flex-direction: column;    
-    font-size: 2em;       
+.News {  
+  display: flex;
+  flex-direction: column;    
+  font-size: 2em;    
+}
+.TopCard {  
+  display: flex;
+  justify-content: center;  
+}
+.TopNewsType {
+  width: 80%;
+  margin: auto;
+}
+.BottomCards{  
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }

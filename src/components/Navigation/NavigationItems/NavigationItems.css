@@ -1,10 +1,12 @@
 .NavigationItems {
+  padding: 0;
   display: flex;
   justify-content: space-evenly;
   margin: auto;
   width: 80%;
   list-style: none;
   padding-top: 20px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 600px) {

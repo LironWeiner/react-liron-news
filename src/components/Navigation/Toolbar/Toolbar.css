@@ -1,7 +1,7 @@
 .Toolbar {
   display: flex;
   flex-direction: column;
-  z-index: 100;   
+  z-index: 100;  
   /* background-image: linear-gradient( 207deg,  rgba(196,214,252,1) 1%, rgba(187,187,187,0) 50% ); */
   background-image: linear-gradient( 359.3deg,  rgba(196,214,252,1) 1%, rgba(187,187,187,0) 70.9% );
   position: relative;

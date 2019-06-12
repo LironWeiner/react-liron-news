@@ -1,18 +1,18 @@
 import React from 'react';
 import NavigationItem from './NavigationItem/NavigationItem';
+import pathList from '../../../pathList';
 import classes from './NavigationItems.css';
 
 const NavigationItems = (props) => {
-    return (
-      <ul className={classes.NavigationItems}>
-        <NavigationItem toggleTopDrawer={props.toggleTopDrawer} link='/' exact>Home</NavigationItem>
-        <NavigationItem toggleTopDrawer={props.toggleTopDrawer} link='/us'>US</NavigationItem>
-        <NavigationItem toggleTopDrawer={props.toggleTopDrawer} link='/world'>World</NavigationItem>
-        <NavigationItem toggleTopDrawer={props.toggleTopDrawer} link='/politics'>Politics</NavigationItem>
-        <NavigationItem toggleTopDrawer={props.toggleTopDrawer} link='/tech'>Tech</NavigationItem>
-        <NavigationItem toggleTopDrawer={props.toggleTopDrawer} link='/business'>Business</NavigationItem>
-      </ul>
-    );
+  return (
+    <ul className={classes.NavigationItems}>
+      {
+        pathList.map(item => {
+          return <NavigationItem key={item.type} toggleTopDrawer={props.toggleTopDrawer} link={item.path} exact>{item.type}</NavigationItem>;
+        })
+      }
+    </ul>
+  );
 };
 
 export default NavigationItems;
