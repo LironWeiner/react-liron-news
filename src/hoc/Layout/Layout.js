@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import Footer from '../../components/Navigation/Footer/Footer';
 import classes from './Layout.css';
 
 const MAX_SCREEN_WIDTH = 600;
@@ -8,7 +9,7 @@ class Layout extends Component {
   state = {
     showTopDrawer: false
   }
- 
+
   componentDidMount() {
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions);
@@ -30,11 +31,12 @@ class Layout extends Component {
     }
   }
 
-  render() {    
+  render() {
     return (
       <React.Fragment>
         <Toolbar isTopDrawerOpen={this.state.showTopDrawer} toggleButtonClick={this.topDrawerToggleHandler} />
         <main className={classes.Content}>{this.props.children}</main>
+        <Footer />
       </React.Fragment>
     );
   }

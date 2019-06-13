@@ -1,19 +1,21 @@
-.News {  
+.News {    
   display: flex;
-  flex-direction: column;    
+  flex-direction: column;
+  justify-content: space-between;    
   font-size: 2em;    
 }
-.TopCard {  
+.TopCard {
   display: flex;
-  justify-content: center;  
+  justify-content: center;    
 }
-.TopNewsType {
+.TopNewsType { 
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
 }
-.BottomCards{  
-  width: 80%;
-  margin: auto;
+.BottomCards {
   display: flex;
+  width: 80%;   
   justify-content: center;
+  align-self: center;
+  flex-wrap: wrap; 
 }

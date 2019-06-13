@@ -1,0 +1,16 @@
+.Footer {
+  background: #fff;
+  box-shadow: 1px 1px 15px 0 rgba(0, 0, 0, 0.14);
+  margin-top: 80px;
+  padding: 50px 0;    
+}
+.Footer div {    
+  width: 80%;  
+  margin: auto; 
+}
+
+.PoweredBy {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}

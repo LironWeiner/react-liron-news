@@ -70,6 +70,24 @@ class News extends Component {
           >
             {this.state.dummyData[1].title}
           </NewsCard>
+          <NewsCard 
+            alt="somerandomimage" 
+            imageSrc={this.state.dummyData[1].imgSrc}
+          >
+            {this.state.dummyData[1].title}
+          </NewsCard>
+          <NewsCard 
+            alt="somerandomimage" 
+            imageSrc={this.state.dummyData[1].imgSrc}
+          >
+            {this.state.dummyData[1].title}
+          </NewsCard>
+          <NewsCard 
+            alt="somerandomimage" 
+            imageSrc={this.state.dummyData[1].imgSrc}
+          >
+            {this.state.dummyData[1].title}
+          </NewsCard>
         </div>  
       </div>
     );
