@@ -6,7 +6,7 @@ const NewsCard = (props) => {
       <div className={props.cardType === "horizontal" ? classes.NewsCard : classes.NewsCardVertical}>
         <div className={classes.InnerDiv}>
           <img alt={props.imageAlt} src={props.imageSrc} />
-          <div className={classes.Text}>{props.children}</div>
+          <div style={{direction: props.direction ? props.direction:"ltr"}} className={classes.Text}>{props.children}</div>
         </div>
       </div>
     );

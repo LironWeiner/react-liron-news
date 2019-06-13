@@ -13,8 +13,8 @@ const pathList = [
         path: "/world"
     },
     {
-        type: "Politics",
-        path: "/politics"
+        type: "Sports",
+        path: "/sports"
     },
     {
         type: "Tech",

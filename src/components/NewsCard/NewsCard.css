@@ -19,7 +19,7 @@
 .NewsCard img:hover {
   transform: scale(1.01);
 }
-.Text {
+.Text {  
   font-size: 0.8em;
   padding: 1%;  
   text-align: center;
@@ -43,7 +43,7 @@
   }
   .InnerDiv {
     flex-direction: column;
-    height: 350px;
+    height: fit-content;
   }
   .NewsCardVertical {
     border: none !important;
