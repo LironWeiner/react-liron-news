@@ -16,6 +16,10 @@
   /* height: 20vh; */
   /* set height to pixels if you want angle to change with screen width */
 }
+.Toolbar nav {
+  width: 70%;
+  margin: auto;
+}
 
 @media (max-width: 600px) {
   .Toolbar {

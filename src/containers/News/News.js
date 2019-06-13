@@ -7,8 +7,8 @@ class News extends Component {
   state = {
     dummyData: [
       {
-        title: "Oxfam 'had culture of tolerating poor behaviour', sex scandal report finds",
-        imgSrc: "https://e3.365dm.com/18/02/1600x900/skynews-haiti-earthquake-2010_4236057.jpg"
+        title: "Boris Johnson comfortably wins first ballot of Tory leadership contest",
+        imgSrc: "https://e3.365dm.com/19/06/1600x900/skynews-boris-johnson-campaign_4692941.jpg"
       },
       {
         title: "Mother who drowned her young twins will not face murder trial",

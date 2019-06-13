@@ -1,9 +1,9 @@
 .NavigationItems {
   padding: 0;
   display: flex;
-  justify-content: space-evenly;
-  margin: auto;
-  width: 80%;
+  justify-content: space-between;
+  margin: auto; 
+  width: 70%;
   list-style: none;
   padding-top: 20px;  
 }

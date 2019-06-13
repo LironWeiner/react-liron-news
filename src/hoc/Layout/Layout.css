@@ -1,4 +1,11 @@
-.Content {       
-    width: 80%;          
-    margin: 40px auto 0 auto;       
+.Content {
+  width: 70%;
+  margin: 40px auto 0 auto;
+}
+
+@media (max-width: 600px) {
+  .Content {
+    width: 100%;
+    margin: 20px auto;
+  }
 }

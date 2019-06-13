@@ -1,44 +1,91 @@
 /* Regular horizontal news card */
 .NewsCard {
-  border: 5px solid hsla(0, 0%, 100%, 0.1);
+  border: 2px solid hsla(0, 0%, 100%, 0.1);
   padding: 2px;
-  width: 80%;
+  width: 70%;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 .InnerDiv {
-  height: 350px;
+  height: 300px;
   display: flex;
   background-image: radial-gradient(circle at center, #fff 0, #f7f7f7 100%);
 }
 .NewsCard img {
   padding: 5px;
   width: 66%;
+  transition: all 0.4s ease-out;
+}
+.NewsCard img:hover {
+  transform: scale(1.01);
 }
 .Text {
   font-size: 0.8em;
-  padding: 1%;
+  padding: 1%;  
   text-align: center;
   align-self: center;
 }
+.Text:hover{
+  text-decoration: underline;
+}
 /* End of horizontal news card */
+
+@media (max-width: 600px) {
+  .NewsCard {
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin-bottom: 6px;
+  }
+  .NewsCard img {
+    padding: 20px 0;
+    width: 100%;
+  }
+  .InnerDiv {
+    flex-direction: column;
+    height: 350px;
+  }
+  .NewsCardVertical {
+    border: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    margin-bottom: 6px !important;
+  }
+  .NewsCardVertical .InnerDiv {
+    flex-direction: row !important;
+    height: 120px !important;
+  }
+  .NewsCardVertical img {
+    padding: 10px !important;
+    width: 40% !important;
+    height: 100% !important;
+  }
+}
 
 /* Vertical news card */
 .NewsCardVertical {
-  border: 5px solid hsla(0, 0%, 100%, 0.1);
+  border: 2px solid hsla(0, 0%, 100%, 0.1);
   padding: 2px;
   width: 33.3%;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 .NewsCardVertical .InnerDiv {
-  height: 350px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   background-image: radial-gradient(circle at center, #fff 0, #f7f7f7 100%);
 }
 .NewsCardVertical img {
   padding: 5px;
-  height: 55%;
+  height: 45%;
+  transition: 0.4s all ease-out;
 }
+
+.NewsCardVertical img:hover {
+  transform: scale(1.01);
+}
+
 .NewsCardVertical .Text {
   display: flex;
   font-size: 0.65em;
@@ -48,52 +95,52 @@
 }
 /* End of vertical news card */
 
-
 /* Transitions when hovering on a card */
-.NewsCard,
-.NewsCardVertical {
-  position: relative;
-}
+@media (min-width: 600px) {
+  .NewsCard,
+  .NewsCardVertical {
+    position: relative;
+  }
 
-.NewsCard:after,
-.NewsCardVertical:after,
-.NewsCardVertical .InnerDiv:after,
-.InnerDiv:after {
-  content: "";
-  position: absolute;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 24%,
-    rgba(227, 223, 224, 0.9783263647255778) 67%
-  );
-}
+  .NewsCard:after,
+  .NewsCardVertical:after,
+  .NewsCardVertical .InnerDiv:after,
+  .InnerDiv:after {
+    content: "";
+    position: absolute;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 1) 24%,
+      rgba(227, 223, 224, 0.9783263647255778) 67%
+    );
+  }
 
-.NewsCard:after,
-.NewsCardVertical:after {
-  height: 5px;
-  width: 0;
-  top: 0;
-  left: 0;
-}
+  .NewsCard:after,
+  .NewsCardVertical:after {
+    height: 5px;
+    width: 0;
+    top: 0;
+    left: 0;
+  }
 
-.NewsCardVertical .InnerDiv:after,
-.InnerDiv:after {
-  height: 5px;
-  width: 0;
-  right: 0;
-  bottom: 0;
-}
+  .NewsCardVertical .InnerDiv:after,
+  .InnerDiv:after {
+    height: 5px;
+    width: 0;
+    right: 0;
+    bottom: 0;
+  }
 
-.NewsCard:hover:after,
-.NewsCardVertical:hover:after {
-  width: 100%;
-  transition: all 0.3s;
-}
+  .NewsCard:hover:after,
+  .NewsCardVertical:hover:after {
+    width: 100%;
+    transition: all 0.3s;
+  }
 
-.NewsCardVertical:hover .InnerDiv:after,
-.NewsCard:hover .InnerDiv:after {
-  width: 100%;
-  transition: all 0.3s;
+  .NewsCardVertical:hover .InnerDiv:after,
+  .NewsCard:hover .InnerDiv:after {
+    width: 100%;
+    transition: all 0.3s;
+  }
 }
-
 /* */

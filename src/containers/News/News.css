@@ -1,21 +1,33 @@
-.News {    
+.News {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;    
-  font-size: 2em;    
+  font-size: 2em;
 }
 .TopCard {
   display: flex;
-  justify-content: center;    
+  justify-content: center;
 }
-.TopNewsType { 
-  width: 80%;
+.TopNewsType {
+  width: 70%;
   margin: 0 auto;
 }
 .BottomCards {
   display: flex;
-  width: 80%;   
+  width: 70%;
   justify-content: center;
   align-self: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .TopNewsType {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .News {
+    font-size: 1.4em;
+  }
+  .BottomCards {
+    width: 100%;
+  }
 }
