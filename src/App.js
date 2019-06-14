@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Layout from './hoc/Layout/Layout';
 import News from './containers/News/News';
-import pathList from './pathList';
+import { pathList } from './pathList';
 import classes from './App.css';
 
 function App() {  

@@ -1,29 +1,42 @@
 /* The list of router paths */
-const pathList = [
+
+export const pathNames = {
+    Home: "/",
+    Us: "/us",
+    World: "/world",
+    Sports: "/sports",
+    Tech: "/tech",
+    Business: "/business",
+    Bitcoin: "/bitcoin"
+};
+
+export const pathList = [
     {
         type: "Home",
-        path: "/"
+        path: pathNames.Home
     },
     {
         type: "US",
-        path: "/us"
+        path: pathNames.Us
     },
     {
         type: "World",
-        path: "/world"
+        path: pathNames.World
     },
     {
         type: "Sports",
-        path: "/sports"
+        path: pathNames.Sports
     },
     {
         type: "Tech",
-        path: "/tech"
+        path: pathNames.Tech
     },
     {
         type: "Business",
-        path: "/business"
+        path: pathNames.Business
+    },
+    {
+        type: "Bitcoin",
+        path: pathNames.Bitcoin
     }
 ];
-
-export default pathList;

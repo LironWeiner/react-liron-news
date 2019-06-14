@@ -4,7 +4,7 @@
 - News from israel
 - News from United states
 - World news
-- Politics
+- Sports
 - Tech
 - Business
 
@@ -15,3 +15,4 @@
 **Currently under development**
 
 Powered by [News Api](https://NewsAPI.org)
+Banner vector created by macrovector - [www.freepik.com](www.freepik.com)

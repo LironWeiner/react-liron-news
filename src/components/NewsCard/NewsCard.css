@@ -23,10 +23,15 @@
   font-size: 0.8em;
   padding: 1%;  
   text-align: center;
-  align-self: center;
+  align-self: center;  
 }
 .Text:hover{
   text-decoration: underline;
+}
+
+.NewsCard a , .NewsCardVertical a{
+  text-decoration: none;
+  color: rgb(29, 40, 90);
 }
 /* End of horizontal news card */
 
@@ -78,7 +83,7 @@
 }
 .NewsCardVertical img {
   padding: 5px;
-  height: 45%;
+  height: 50%;
   transition: 0.4s all ease-out;
 }
 
@@ -88,9 +93,7 @@
 
 .NewsCardVertical .Text {
   display: flex;
-  font-size: 0.65em;
-  align-items: center;
-  margin: auto;
+  font-size: 0.65em;  
   padding: 1%;
 }
 /* End of vertical news card */
