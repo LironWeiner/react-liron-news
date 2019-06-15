@@ -14,7 +14,7 @@
 .BottomCards {
   display: flex;
   width: 70%;
-  justify-content: center;
+  /* justify-content: center; */
   align-self: center;
   flex-wrap: wrap;
 }

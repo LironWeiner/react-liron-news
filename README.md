@@ -7,6 +7,7 @@
 - Sports
 - Tech
 - Business
+- Bitcoin
 
 ### Features:
 - Modern design

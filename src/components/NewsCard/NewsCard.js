@@ -3,14 +3,12 @@ import classes from './NewsCard.css';
 
 const TEXT_LENGTH = 80;
 
-const NewsCard = (props) => {
-  console.log(props.children);
+const NewsCard = (props) => {  
   let cardTitle = null;
   if (props.children && props.children.length > TEXT_LENGTH) {
     const howMuchToCut = Math.abs(props.children.length - TEXT_LENGTH);
     cardTitle = props.children.slice(0, -howMuchToCut) + "...";
   }
-
 
   return (
     <div className={props.cardType === "horizontal" ? classes.NewsCard : classes.NewsCardVertical}>
