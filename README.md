@@ -18,3 +18,5 @@
 Powered by [News Api](https://NewsAPI.org)
 
 Banner vector created by macrovector - [freepik](www.freepik.com)
+
+Icon made by [Roundicons](https://www.flaticon.com/authors/roundicons)
