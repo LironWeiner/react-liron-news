@@ -1,11 +1,13 @@
 .Content {
+  min-height: calc(100vh - 50px);  
   width: 70%;
   margin: 40px auto 0 auto;
+  padding-bottom: 200px;
 }
 
 @media (max-width: 600px) {
   .Content {
     width: 100%;
-    margin: 20px auto;
+    margin: 20px auto;          
   }
 }

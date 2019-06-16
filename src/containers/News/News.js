@@ -29,7 +29,8 @@ class News extends Component {
 
     switch (match.path) {
       case pathNames.Home:
-        instance.get('/top-headlines?country=il&pageSize=' + pageSize + '&apiKey=' + apiKey)
+        //'/top-headlines?country=il&pageSize=' + pageSize + '&apiKey=' + apiKey
+        instance.get('/topheadlines?country=il&pageSize=' + pageSize + '&apiKey=' + apiKey)
           .then(response => {
             this.setState({ data: this.copyRequestDataFormatted(response.data.articles), isLoading: false });
           })

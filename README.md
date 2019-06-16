@@ -17,4 +17,4 @@
 
 Powered by [News Api](https://NewsAPI.org)
 
-Banner vector created by macrovector - [www.freepik.com](www.freepik.com)
+Banner vector created by macrovector - [freepik](www.freepik.com)

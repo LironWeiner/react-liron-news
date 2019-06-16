@@ -115,7 +115,7 @@
       circle,
       rgba(255, 255, 255, 1) 24%,
       rgba(227, 223, 224, 0.9783263647255778) 67%
-    );
+    );    
   }
 
   .NewsCard:after,
@@ -137,12 +137,14 @@
   .NewsCard:hover:after,
   .NewsCardVertical:hover:after {
     width: 100%;
+    filter: blur(5px);
     transition: all 0.3s;
   }
 
   .NewsCardVertical:hover .InnerDiv:after,
   .NewsCard:hover .InnerDiv:after {
     width: 100%;
+    filter: blur(5px);
     transition: all 0.3s;
   }
 }
