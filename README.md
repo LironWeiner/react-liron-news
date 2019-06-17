@@ -13,7 +13,8 @@
 - Modern design
 - Responsive
 
-**Currently under development**
+## The api which i am using [News Api](https://NewsAPI.org) is very limited i got only 500 requests per day.
+## There are more limitations which you can read more about [here](https://newsapi.org/pricing).
 
 Powered by [News Api](https://NewsAPI.org)
 
