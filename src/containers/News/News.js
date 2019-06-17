@@ -1,128 +1,25 @@
 import React, { Component } from 'react';
-import { instance, apiKey, pageSize, maxApiPages } from '../../axios-news';
+import { connect } from 'react-redux';
+
+import { maxApiPages } from '../../axios-news';
 import NewsCard from '../../components/NewsCard/NewsCard';
 import Spinner from '../../components/Ui/Spinner/Spinner';
 import { pathNames } from '../../pathList';
 import newsCardPicture from '../../assets/images/newsCardPicture.jpg';
 import LoadMoreButton from '../../components/Ui/LoadMoreButton/LoadMoreButton';
 import ErrorModal from '../../components/Ui/ErrorModal/ErrorModal';
+import * as actions from '../../store/actions/actions';
 import classes from './News.css';
 
 class News extends Component {
-  state = {
-    data: [],
-    isLoading: true,
-    pageNumber: 1,
-    error: null
-  }
 
-  componentDidMount() {
-    this.getNews();
-  }
-
-  getNews = () => {
-    const { match } = this.props;
-
-    this.setState(prevState => ({
-      pageNumber: prevState.pageNumber + 1
-    }));
-
-    switch (match.path) {
-      case pathNames.Home:        
-        instance.get('/top-headlines?country=il&pageSize=' + pageSize + '&apiKey=' + apiKey)
-          .then(response => {
-            this.setState({ data: this.copyRequestDataFormatted(response.data.articles), isLoading: false });
-          })
-          .catch(error => {
-            this.errorHandler(error);
-          });
-        break;
-      case pathNames.Us:
-        instance.get('/everything?q=politics+united states&from=' + this.getCalculatedFromDate(3) + '&language=en&sortBy=publishedAt&pageSize='
-          + pageSize + '&page=' + this.state.pageNumber + '&apiKey=' + apiKey)
-          .then(response => {
-            this.setState({ data: this.copyRequestDataFormatted(response.data.articles), isLoading: false });
-          })
-          .catch(error => {
-            this.errorHandler(error);
-          });
-        break;
-      case pathNames.World:
-        instance.get('/everything?q=world&from=' + this.getCalculatedFromDate(3) + '&sortBy=publishedAt&language=en&pageSize='
-          + pageSize + '&page=' + this.state.pageNumber + '&apiKey=' + apiKey)
-          .then(response => {
-            this.setState({ data: this.copyRequestDataFormatted(response.data.articles), isLoading: false });
-          })
-          .catch(error => {
-            this.errorHandler(error);
-          });
-        break;
-      case pathNames.Sports:
-        instance.get('/top-headlines?country=il&category=sports&pageSize=' + pageSize + '&apiKey=' + apiKey)
-          .then(response => {
-            this.setState({ data: this.copyRequestDataFormatted(response.data.articles), isLoading: false });
-          })
-          .catch(error => {
-            this.errorHandler(error);
-          });
-        break;
-      case pathNames.Tech:
-        instance.get('/everything?q=technology+israel&pageSize=' + pageSize + '&page=' + this.state.pageNumber + '&apiKey=' + apiKey)
-          .then(response => {
-            console.log(response);
-            this.setState({ data: this.copyRequestDataFormatted(response.data.articles), isLoading: false });
-          })
-          .catch(error => {
-            this.errorHandler(error);
-          });
-        break;
-      case pathNames.Business:
-        instance.get('/top-headlines?country=il&category=business&pageSize=' + pageSize + '&apiKey=' + apiKey)
-          .then(response => {
-            this.setState({ data: this.copyRequestDataFormatted(response.data.articles), isLoading: false });
-          })
-          .catch(error => {
-            this.errorHandler(error);
-          });
-        break;
-      case pathNames.Bitcoin:
-        {
-          instance.get('/everything?q=bitcoin&from=' + this.getCalculatedFromDate(0, 1)
-            + '&sortBy=publishedAt&language=en&pageSize='
-            + pageSize + '&page=' + this.state.pageNumber + '&apiKey=' + apiKey)
-            .then(response => {
-              this.setState({ data: this.copyRequestDataFormatted(response.data.articles), isLoading: false });
-            })
-            .catch(error => {
-              this.errorHandler(error);
-            });
-          break;
-        }
-      default:
-        break;
-    }
-  }
-
-  getCalculatedFromDate(minusDays, minusMonths) {
-    const today = new Date();
-    let fromDate = today;
-    if ((!minusDays && !minusMonths) || (minusDays <= 0 && minusMonths <= 0)) {
-      fromDate = null;
-    }
-    else if (minusDays && minusDays >= 0) {
-      fromDate.setDate(today.getDate() - minusDays);
-      fromDate = `${today.getFullYear()}-${today.getUTCMonth() + 1}-${today.getDate()}`;
-    }
-    else if (minusMonths && minusMonths >= 0) {
-      fromDate.setMonth(today.getMonth() - minusMonths);
-      fromDate = `${today.getFullYear()}-${today.getUTCMonth() + 1}-${today.getDate()}`;
-    }
-
-    return fromDate;
+  componentDidMount() {    
+    this.props.onResetState();
+    this.props.onInitNews(this.props.match, this.props.pageNumber);
   }
 
   fillNewsData = () => {
-    const { data } = this.state;
+    const { data } = this.props;
     const { match } = this.props;
     let theLanguageStyle = {};
     if (match.path &&
@@ -183,51 +80,41 @@ class News extends Component {
     return newsType;
   }
 
-  copyRequestDataFormatted(articles) {
-    const { data } = this.state;
+  render() {    
+    const { match, pageNumber } = this.props;
 
-    // Format the data from get request to the data i need
-    const newArticles = articles.map(article => {
-      const res = {
-        title: article.title,
-        url: article.url,
-        urlToImage: article.urlToImage
-      };
-
-      return res;
-    });
-
-    // Remove duplicates from the new data
-    for (let i = 0; i < newArticles.length; i++) {
-      for (let j = 0; j < newArticles.length; j++) {
-        if (i !== j && newArticles[i].url === newArticles[j].url) {
-          newArticles.splice(j, 1);
-        }
-      }
-    }
-
-    return [...data, ...newArticles];
-  }
-
-  errorHandler = (err) => {
-    this.setState({ error: err });
-  }
-
-  render() {
     let loadMoreButton = null;
-    if (this.props.match.path !== pathNames.Home && this.props.match.path !== pathNames.Sports && this.props.match.path !== pathNames.Business) {
-      loadMoreButton = <LoadMoreButton click={this.getNews} />;
+    if (match.path !== pathNames.Home && match.path !== pathNames.Sports && match.path !== pathNames.Business) {
+      loadMoreButton = <LoadMoreButton click={this.props.onInitNews} match={match} pageNumber={pageNumber} />;
     }
 
     return (
-      <div onClick={() => { this.setState({ error: null }); }} className={classes.News}>
+      <div className={classes.News} onClick={this.props.error ? this.props.onErrorNull : null}>
         <div className={classes.TopNewsType}>{this.sliceNewsType()}</div>
-        <ErrorModal isError={this.state.error}>{this.state.error ? this.state.error.message : null}</ErrorModal>
-        {this.state.isLoading ? <Spinner /> : this.fillNewsData()}
-        {this.state.isLoading || this.state.pageNumber > maxApiPages ? null : loadMoreButton}
+        <ErrorModal isError={this.props.error}>{this.props.error}</ErrorModal>
+        {this.props.isLoading && this.props.data ? <Spinner /> : this.fillNewsData()}        
+        {this.props.isLoading || this.props.pageNumber > maxApiPages ? null : loadMoreButton}
       </div>
     );
   }
 }
 
-export default News;
+const mapStateToProps = state => {
+  return {
+    data: state.data,
+    isLoading: state.isLoading,
+    pageNumber: state.pageNumber,
+    error: state.error
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onErrorNull: () => dispatch(actions.setErrorNull()),
+    onInitNews: (match, pageNumber) => dispatch(actions.initNews(match, pageNumber)),
+    onResetState: () => dispatch(actions.resetState())
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(News);

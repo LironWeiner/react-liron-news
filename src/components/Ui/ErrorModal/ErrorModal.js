@@ -1,5 +1,6 @@
 import React from 'react';
 import errorIcon from '../../../assets/images/error.svg';
+import getErrorType from '../../../errorTypes';
 import classes from './ErrorModal.css';
 
 const ErrorModal = (props) => {
@@ -11,7 +12,7 @@ const ErrorModal = (props) => {
           <h1>Error</h1>
         </div>
         <div className={classes.Body}>
-          <p>{props.children}</p>
+          <p>{props.children ? getErrorType(props.children.message):null}</p>
         </div>
       </div>
     </div>
