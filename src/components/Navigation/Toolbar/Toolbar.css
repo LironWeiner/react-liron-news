@@ -17,7 +17,7 @@
   /* set height to pixels if you want angle to change with screen width */
 }
 .Toolbar nav {
-  width: 70%;
+  width: 70%; 
   margin: auto;
 }
 
@@ -30,5 +30,11 @@
   }
   .DesktopOnly {
     display: none;
+  }
+}
+
+@media (max-width: 1250px) {
+  .Toolbar nav {
+    width: 100%;    
   }
 }
