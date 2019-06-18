@@ -35,8 +35,8 @@ export const resetState = () => {
     };
 };
 
-export const initNews = (match, pageNumber) => {
-    return dispatch => {
+export const initNews = (match) => {
+    return (dispatch, getState) => {        
         switch (match.path) {
             case pathNames.Home:
                 instance.get('/top-headlines?country=il&pageSize=' + pageSize + '&apiKey=' + apiKey)
@@ -49,8 +49,8 @@ export const initNews = (match, pageNumber) => {
                 break;
             case pathNames.Us:
                 instance.get('/everything?q=politics+united states&from=' + getCalculatedFromDate(3) + '&language=en&sortBy=publishedAt&pageSize='
-                    + pageSize + '&page=' + pageNumber + '&apiKey=' + apiKey)
-                    .then(response => {
+                    + pageSize + '&page=' + getState().pageNumber + '&apiKey=' + apiKey)
+                    .then(response => {                        
                         dispatch(setNews(response.data.articles));
                     })
                     .catch(error => {
@@ -59,8 +59,8 @@ export const initNews = (match, pageNumber) => {
                 break;
             case pathNames.World:
                 instance.get('/everything?q=world&from=' + getCalculatedFromDate(3) + '&sortBy=publishedAt&language=en&pageSize='
-                    + pageSize + '&page=' + pageNumber + '&apiKey=' + apiKey)
-                    .then(response => {
+                    + pageSize + '&page=' + getState().pageNumber + '&apiKey=' + apiKey)
+                    .then(response => {                        
                         dispatch(setNews(response.data.articles));
                     })
                     .catch(error => {
@@ -77,7 +77,7 @@ export const initNews = (match, pageNumber) => {
                     });
                 break;
             case pathNames.Tech:
-                instance.get('/everything?q=technology+israel&sortBy=publishedAt&from=' + getCalculatedFromDate(3) + '&pageSize=' + pageSize + '&page=' + pageNumber + '&apiKey=' + apiKey)
+                instance.get('/everything?q=technology+israel&sortBy=publishedAt&from=' + getCalculatedFromDate(3) + '&pageSize=' + pageSize + '&page=' + getState().pageNumber + '&apiKey=' + apiKey)
                     .then(response => {
                         dispatch(setNews(response.data.articles));
                     })
@@ -98,7 +98,7 @@ export const initNews = (match, pageNumber) => {
                 {
                     instance.get('/everything?q=bitcoin&from=' + getCalculatedFromDate(10)
                         + '&sortBy=publishedAt&language=en&pageSize='
-                        + pageSize + '&page=' + pageNumber + '&apiKey=' + apiKey)
+                        + pageSize + '&page=' + getState().pageNumber + '&apiKey=' + apiKey)
                         .then(response => {
                             dispatch(setNews(response.data.articles));
                         })

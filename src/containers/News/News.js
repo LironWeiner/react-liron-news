@@ -15,7 +15,8 @@ class News extends Component {
 
   componentDidMount() {    
     this.props.onResetState();
-    this.props.onInitNews(this.props.match, this.props.pageNumber);
+    //console.log('page number: ',this.props.pageNumber);
+    this.props.onInitNews(this.props.match);
   }
 
   fillNewsData = () => {
@@ -81,11 +82,11 @@ class News extends Component {
   }
 
   render() {    
-    const { match, pageNumber } = this.props;
+    const { match } = this.props;
 
     let loadMoreButton = null;
-    if (match.path !== pathNames.Home && match.path !== pathNames.Sports && match.path !== pathNames.Business) {
-      loadMoreButton = <LoadMoreButton click={this.props.onInitNews} match={match} pageNumber={pageNumber} />;
+    if (match.path !== pathNames.Home && match.path !== pathNames.Sports && match.path !== pathNames.Business) {     
+      loadMoreButton = <LoadMoreButton click={() => this.props.onInitNews(match)} match={match} />;
     }
 
     return (
@@ -111,7 +112,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onErrorNull: () => dispatch(actions.setErrorNull()),
-    onInitNews: (match, pageNumber) => dispatch(actions.initNews(match, pageNumber)),
+    onInitNews: (match) => dispatch(actions.initNews(match)),
     onResetState: () => dispatch(actions.resetState())
   };
 };
