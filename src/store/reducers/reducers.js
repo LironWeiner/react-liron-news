@@ -37,11 +37,6 @@ const formatNewsResponse = (articles) => {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        // case actionTypes.PAGE_INCREMENT:
-        //     return {
-        //         ...state,
-        //         pageNumber: state.pageNumber + 1
-        //     };
         case actionTypes.FETCH_NEWS_FAILED:
             return {
                 ...state,
@@ -56,6 +51,7 @@ const reducer = (state = initialState, action) => {
             {
                 const newFormatedData = formatNewsResponse(action.data);
                 const mergedData = [...state.data, ...newFormatedData];
+
                 return {
                     ...state,
                     isLoading: false,

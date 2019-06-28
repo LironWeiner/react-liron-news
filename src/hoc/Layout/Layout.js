@@ -31,7 +31,7 @@ class Layout extends Component {
     }
   }
 
-  render() {
+  render() {    
     return (
       <React.Fragment>
         <Toolbar isTopDrawerOpen={this.state.showTopDrawer} toggleButtonClick={this.topDrawerToggleHandler} />

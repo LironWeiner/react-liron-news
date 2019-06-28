@@ -10,6 +10,22 @@ export const pathNames = {
     Bitcoin: "/bitcoin"
 };
 
+
+// Enable load more button only for this types of news
+export const loadMoreNewsPaths = [
+    pathNames.Us,
+    pathNames.World,
+    pathNames.Tech,
+    pathNames.Bitcoin
+];
+
+// right to left content like news in hebrew
+export const rtlNewsPaths = [
+    pathNames.Home,
+    pathNames.Sports,
+    pathNames.Business
+];
+
 export const pathList = [
     {
         type: "Home",

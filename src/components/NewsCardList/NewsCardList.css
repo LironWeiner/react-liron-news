@@ -1,0 +1,17 @@
+.TopCard {
+  display: flex;
+  justify-content: center;
+}
+
+.BottomCards {
+  display: flex;
+  width: 70%;  
+  align-self: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .BottomCards {
+    width: 100%;
+  }
+}
