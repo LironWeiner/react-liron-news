@@ -13,7 +13,7 @@
 - Modern design
 - Responsive
 
-Live demo [https://codesandbox.io/s/react-liron-news-mz77s?fontsize=14](https://codesandbox.io/s/react-liron-news-9nwcx?fontsize=14).
+Live demo [https://codesandbox.io/s/react-liron-news-wdfbj?fontsize=14](https://codesandbox.io/s/react-liron-news-9nwcx?fontsize=14).
 
 ## The api which i am using [News Api](https://NewsAPI.org) is very limited i got only 500 requests per day there are more limitations which you can read more about [here](https://newsapi.org/pricing).
 
